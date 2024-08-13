@@ -33,7 +33,7 @@ jobs:
       # Run Unit Tests Before Image Creation
       - name: Run Unit Tests (Pre-Build)
         run: |
-          python -m unittest app.test.py
+          python -m unittest test.py
 
       # Install Grype for image vulnerability scanning
       - name: Install Grype
@@ -57,7 +57,7 @@ jobs:
       - name: Run Unit Tests (Post-Build)
         run: |
           docker run --rm ${{ secrets.DOCKER_USER }}/sba-ratings:${{ env.IMAGE_SUFFIX }} \
-          python -m unittest app.test.py
+          python -m unittest test.py
 
       # Push the image
       - name: Push the Docker image
