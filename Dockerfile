@@ -25,8 +25,7 @@ ENV FLASK_RUN_HOST=0.0.0.0
 # Purpose: Linux headers provide the necessary files for compiling code that interacts with the Linux kernel.
 # Why Needed: While not always required, some packages might need to interact with kernel-specific features or rely on kernel headers for certain operations.
 # Example: This is less common but can be necessary for packages that deal with low-level system operations or network functionalities.
-# However, we do not need any of these packages, so we can ignore this directive.
-# RUN apk add --no-cache gcc musl-dev linux-headers
+RUN apk add --no-cache gcc musl-dev linux-headers
 
 # Changing working directory to segregate the application
 WORKDIR /app
@@ -58,5 +57,5 @@ EXPOSE 5000
 #CMD ["run"]
 
 # Default entrypoint
-ENTRYPOINT ["/bin/sh", "-c"]
+# ENTRYPOINT ["/bin/sh", "-c"]
 CMD ["flask", "run"]
