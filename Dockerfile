@@ -1,7 +1,7 @@
 # With this updated Dockerfile, the image size is reduced from 221MB to 83.8MB while performing the same functionality
 
 # Setting the base image
-FROM python:3.13.0b4-alpine3.20
+FROM python:alpine3.19
 
 # Setting environment variables
 ENV FLASK_APP=app.py
@@ -56,6 +56,4 @@ EXPOSE 5000
 #ENTRYPOINT ["flask"]
 #CMD ["run"]
 
-# Default entrypoint
-# ENTRYPOINT ["/bin/sh", "-c"]
 CMD ["flask", "run"]
