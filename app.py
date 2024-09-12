@@ -23,9 +23,8 @@ def add_rating(review_id, rating):
 def get_rating(review_id):
     rating = collection.find_one({"review_id": review_id})
     if rating:
-        return jsonify(
-            {"rating": rating["rating"], "color": "black"}
-        )  # This part is for ratings-v2
+        # This part is for ratings-v2
+        return jsonify({"rating": rating["rating"], "color": "black"})
         # return jsonify({'rating': rating['rating'], 'color': 'orange'}) # This part is for ratings-v1
     else:
         return jsonify({"error": "Rating not found"}), 404
